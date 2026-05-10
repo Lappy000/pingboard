@@ -1,14 +1,10 @@
-# Binaries
-pingboard
-pingboard.exe
+# Binaries (build output)
+/bin/
+/dist/
 *.exe
 *.dll
 *.so
 *.dylib
-
-# Build output
-/bin/
-/dist/
 
 # Test binary
 *.test
