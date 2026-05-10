@@ -1,0 +1,41 @@
+# Binaries
+pingboard
+pingboard.exe
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build output
+/bin/
+/dist/
+
+# Test binary
+*.test
+
+# Output of `go coverage`
+*.out
+coverage.html
+
+# Go workspace
+go.work
+go.work.sum
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Config (keep example, ignore user config)
+config.yaml
+!config.example.yaml
+
+# Alert logs
+alerts.jsonl
+*.log
