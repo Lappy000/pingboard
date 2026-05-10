@@ -1,0 +1,51 @@
+# pingboard configuration
+# See: https://github.com/Lappy000/pingboard
+
+defaults:
+  method: GET
+  timeout: 10s
+  interval: 30s
+  expect_status: 200
+
+endpoints:
+  - name: GitHub API
+    url: https://api.github.com
+    interval: 15s
+
+  - name: Google
+    url: https://www.google.com
+    timeout: 5s
+
+  - name: Cloudflare DNS
+    url: https://1.1.1.1
+    interval: 10s
+
+  - name: JSON Placeholder
+    url: https://jsonplaceholder.typicode.com/posts/1
+    interval: 20s
+    expect_status: 200
+
+  - name: httpbin
+    url: https://httpbin.org/get
+    timeout: 8s
+    headers:
+      Accept: application/json
+
+alerts:
+  - type: stdout
+    threshold: 3
+
+  # Uncomment to enable webhook alerts:
+  # - type: webhook
+  #   webhook_url: https://hooks.slack.com/services/YOUR/WEBHOOK/URL
+  #   threshold: 2
+
+  # Uncomment to enable log file alerts:
+  # - type: log
+  #   log_file: ./alerts.jsonl
+  #   threshold: 3
+
+dashboard:
+  refresh_rate: 2s
+  compact: false
+  max_history: 100
