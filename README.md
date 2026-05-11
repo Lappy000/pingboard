@@ -234,9 +234,3 @@ internal/alerter/    → Alert dispatch (stdout, webhook, log)
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
-
----
-
-<p align="center">
-  Made with ❤️ by <a href="https://github.com/Lappy000">Lappy000</a>
-</p>
