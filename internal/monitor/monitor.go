@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"math"
 	"net/http"
+	"sort"
 	"sync"
 	"time"
 
@@ -346,14 +347,10 @@ func calculateP95(history []ProbeResult) time.Duration {
 		return 0
 	}
 
-	// Simple sort for P95
-	for i := range latencies {
-		for j := i + 1; j < len(latencies); j++ {
-			if latencies[j] < latencies[i] {
-				latencies[i], latencies[j] = latencies[j], latencies[i]
-			}
-		}
-	}
+	// Sort latencies for percentile calculation (O(n log n))
+	sort.Slice(latencies, func(i, j int) bool {
+		return latencies[i] < latencies[j]
+	})
 
 	idx := int(float64(len(latencies)) * 0.95)
 	if idx >= len(latencies) {

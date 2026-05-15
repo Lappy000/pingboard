@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"strings"
 	"sync"
 	"time"
 
@@ -217,17 +218,5 @@ func (a *Alerter) Summary() string {
 	if len(down) == 0 {
 		return "All endpoints healthy"
 	}
-	return fmt.Sprintf("ALERTS ACTIVE: %s", joinStrings(down, ", "))
-}
-
-// joinStrings joins a slice of strings with a separator.
-func joinStrings(strs []string, sep string) string {
-	result := ""
-	for i, s := range strs {
-		if i > 0 {
-			result += sep
-		}
-		result += s
-	}
-	return result
+	return fmt.Sprintf("ALERTS ACTIVE: %s", strings.Join(down, ", "))
 }
