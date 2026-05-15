@@ -1,0 +1,24 @@
+# .dockerignore - exclude unnecessary files from Docker build context
+.git
+.gitignore
+bin/
+dist/
+*.exe
+*.dll
+*.so
+*.dylib
+coverage.out
+coverage.html
+alerts.jsonl
+*.log
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Dockerfile
+.dockerignore
+README.md
+LICENSE
