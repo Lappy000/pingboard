@@ -1,6 +1,7 @@
 package monitor
 
 import (
+	"sync"
 	"testing"
 	"time"
 
@@ -141,13 +142,16 @@ func TestRecordResultUpdatesStats(t *testing.T) {
 }
 
 func TestWithResultCallback(t *testing.T) {
+	var mu sync.Mutex
 	var received []ProbeResult
 	endpoints := []config.Endpoint{
 		{Name: "CB", URL: "https://example.com", Method: "GET", Timeout: 5 * time.Second, Interval: 10 * time.Second, ExpectStatus: 200},
 	}
 
 	m := New(endpoints, WithResultCallback(func(r ProbeResult) {
+		mu.Lock()
 		received = append(received, r)
+		mu.Unlock()
 	}))
 
 	m.recordResult(ProbeResult{
@@ -160,6 +164,8 @@ func TestWithResultCallback(t *testing.T) {
 	// Wait briefly for goroutine callback
 	time.Sleep(50 * time.Millisecond)
 
+	mu.Lock()
+	defer mu.Unlock()
 	if len(received) != 1 {
 		t.Fatalf("expected callback to receive 1 result, got %d", len(received))
 	}
