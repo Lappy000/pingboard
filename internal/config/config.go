@@ -11,18 +11,18 @@ import (
 
 // Endpoint represents a single HTTP endpoint to monitor.
 type Endpoint struct {
-	Name     string            `yaml:"name"`
-	URL      string            `yaml:"url"`
-	Method   string            `yaml:"method,omitempty"`
-	Headers  map[string]string `yaml:"headers,omitempty"`
-	Timeout  time.Duration     `yaml:"timeout,omitempty"`
-	Interval time.Duration     `yaml:"interval,omitempty"`
-	ExpectStatus int           `yaml:"expect_status,omitempty"`
+	Name         string            `yaml:"name"`
+	URL          string            `yaml:"url"`
+	Method       string            `yaml:"method,omitempty"`
+	Headers      map[string]string `yaml:"headers,omitempty"`
+	Timeout      time.Duration     `yaml:"timeout,omitempty"`
+	Interval     time.Duration     `yaml:"interval,omitempty"`
+	ExpectStatus int               `yaml:"expect_status,omitempty"`
 }
 
 // Alert configures how downtime notifications are delivered.
 type Alert struct {
-	Type       string `yaml:"type"`       // "stdout", "webhook", "log"
+	Type       string `yaml:"type"` // "stdout", "webhook", "log"
 	WebhookURL string `yaml:"webhook_url,omitempty"`
 	LogFile    string `yaml:"log_file,omitempty"`
 	Threshold  int    `yaml:"threshold,omitempty"` // consecutive failures before alerting

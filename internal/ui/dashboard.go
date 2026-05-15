@@ -13,10 +13,10 @@ import (
 
 // ANSI color codes for terminal rendering.
 const (
-	reset      = "\033[0m"
-	bold       = "\033[1m"
-	dim        = "\033[2m"
-	underline  = "\033[4m"
+	reset     = "\033[0m"
+	bold      = "\033[1m"
+	dim       = "\033[2m"
+	underline = "\033[4m"
 
 	fgBlack   = "\033[30m"
 	fgRed     = "\033[31m"
@@ -27,11 +27,11 @@ const (
 	fgCyan    = "\033[36m"
 	fgWhite   = "\033[37m"
 
-	bgBlack   = "\033[40m"
-	bgRed     = "\033[41m"
-	bgGreen   = "\033[42m"
-	bgYellow  = "\033[43m"
-	bgBlue    = "\033[44m"
+	bgBlack  = "\033[40m"
+	bgRed    = "\033[41m"
+	bgGreen  = "\033[42m"
+	bgYellow = "\033[43m"
+	bgBlue   = "\033[44m"
 
 	fgBrightGreen  = "\033[92m"
 	fgBrightRed    = "\033[91m"

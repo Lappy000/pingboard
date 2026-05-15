@@ -18,26 +18,26 @@ import (
 
 // Event represents a state change that triggers an alert.
 type Event struct {
-	Endpoint   string    `json:"endpoint"`
-	URL        string    `json:"url"`
-	Status     string    `json:"status"`
-	Error      string    `json:"error,omitempty"`
-	Latency    string    `json:"latency,omitempty"`
-	Timestamp  time.Time `json:"timestamp"`
-	Downtime   string    `json:"downtime,omitempty"`
-	Recovered  bool      `json:"recovered"`
+	Endpoint  string    `json:"endpoint"`
+	URL       string    `json:"url"`
+	Status    string    `json:"status"`
+	Error     string    `json:"error,omitempty"`
+	Latency   string    `json:"latency,omitempty"`
+	Timestamp time.Time `json:"timestamp"`
+	Downtime  string    `json:"downtime,omitempty"`
+	Recovered bool      `json:"recovered"`
 }
 
 // Alerter manages alert delivery based on probe results.
 type Alerter struct {
-	alerts      []config.Alert
-	endpoints   []config.Endpoint
-	failCounts  map[string]int
-	downSince   map[string]time.Time
-	notified    map[string]bool
-	mu          sync.Mutex
-	httpClient  *http.Client
-	logFiles    map[string]*os.File
+	alerts     []config.Alert
+	endpoints  []config.Endpoint
+	failCounts map[string]int
+	downSince  map[string]time.Time
+	notified   map[string]bool
+	mu         sync.Mutex
+	httpClient *http.Client
+	logFiles   map[string]*os.File
 }
 
 // New creates an Alerter instance with the given alert configurations.

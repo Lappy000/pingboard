@@ -40,32 +40,32 @@ func (s Status) String() string {
 
 // ProbeResult captures the outcome of a single HTTP health check.
 type ProbeResult struct {
-	Endpoint    string
-	Status      Status
-	StatusCode  int
-	Latency     time.Duration
-	Error       string
-	Timestamp   time.Time
+	Endpoint   string
+	Status     Status
+	StatusCode int
+	Latency    time.Duration
+	Error      string
+	Timestamp  time.Time
 }
 
 // EndpointStats maintains rolling statistics for a monitored endpoint.
 type EndpointStats struct {
-	Name            string
-	URL             string
-	CurrentStatus   Status
-	LastLatency     time.Duration
-	AvgLatency      time.Duration
-	MinLatency      time.Duration
-	MaxLatency      time.Duration
-	P95Latency      time.Duration
-	TotalChecks     int64
-	TotalSuccesses  int64
-	TotalFailures   int64
-	ConsecFailures  int
-	UptimePercent   float64
-	LastChecked     time.Time
-	LastError       string
-	History         []ProbeResult
+	Name           string
+	URL            string
+	CurrentStatus  Status
+	LastLatency    time.Duration
+	AvgLatency     time.Duration
+	MinLatency     time.Duration
+	MaxLatency     time.Duration
+	P95Latency     time.Duration
+	TotalChecks    int64
+	TotalSuccesses int64
+	TotalFailures  int64
+	ConsecFailures int
+	UptimePercent  float64
+	LastChecked    time.Time
+	LastError      string
+	History        []ProbeResult
 }
 
 // Monitor orchestrates concurrent endpoint health checking.
